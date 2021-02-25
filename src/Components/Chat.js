@@ -14,12 +14,11 @@ function Chat() {
           <ChannelDetails>
             <div>Details</div>
             <Info />
-              
-            
           </ChannelDetails>
         </Header>
-        <ChatMessage />
-            
+        <MessageContainer>
+            <ChatMessage />
+        </MessageContainer>    
         <ChatInput />
       </Container>
     );
@@ -40,8 +39,8 @@ const Header = styled.div `
    justify-content: space-between;
 `
 
-
-
+const MessageContainer = styled.div`
+`;
 
  
 const Channel = styled.div `
