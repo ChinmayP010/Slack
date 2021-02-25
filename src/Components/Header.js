@@ -44,7 +44,7 @@ const Container = styled.div`
 const Main = styled.div`
     display: flex;
     margin-right: 16px;
-    margin-left 16px;
+    margin-left: 16px;
 `
 
 const SearchContainer = styled.div`
@@ -92,4 +92,5 @@ const UserImage = styled.div `
     border-radius: 3px;
     img {
         width: 100%;
+    }    
  `    
