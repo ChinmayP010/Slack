@@ -14,15 +14,17 @@ function Header() {
                     </Search>
                 </SearchContainer>
                 <HelpOutlineIcon />
+                <br />
             </Main>
             <UserContainer>
                 <Name>
-                    Chinmay Prashanth
+                    Chinmay 
                 </Name>
                 <UserImage>
-                    <img src="" alt = ""/>
+                    <img src="https://i.imgur.com/6VBx3io.png " alt = ""/>
                 </UserImage>
             </UserContainer>
+            
         </Container>
     )
 }
@@ -32,6 +34,7 @@ const SearchContainer = styled.div `
     min-width: 400px;
     margin-left: 16px;
     margin-right: 16px;
+    
 `;
 
 const Search = styled.div `
@@ -58,10 +61,12 @@ const Search = styled.div `
 `;
 
 
-const Main = styled.div `
-    margin-right: 16px;
-    margin-left: 16px;
-    display: flex;
+const Main = styled.div`
+  margin-right: 16px;
+  margin-left: 16px;
+  display: flex;
+  padding-bottom: 15px;
+  padding-top: 15px;
 `;
 
 const Name = styled.div `
@@ -69,8 +74,8 @@ const Name = styled.div `
 `;
 
 const UserImage = styled.div `
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     border: 2px solid white;
     border-radius: 3px;
 `
@@ -93,6 +98,8 @@ const Container = styled.div `
     color: white;
     align-items: center;
     justify-content: center;
-    position:: relative;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 1px 0 0 rgb(255, 255, 255 / 10%);
 `;
 

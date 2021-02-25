@@ -4,7 +4,7 @@ import Chat from './Components/Chat';
 import Login from './Components/Login';
 import styled from "styled-components";
 import Header from "./Components/Header";
-import SideBar from './Components/SideBar';
+import SideBar from "./Components/SideBar";
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
 export default App;
 const Main = styled.div `
   display: grid;
-  grid-template-columns: 300px auto; 
+  grid-template-columns: 250px auto; 
 `
 
 const Container = styled.div `

@@ -1,11 +1,71 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import { Channellist } from "../Data/ChannelData";
 
 function Chat() {
-    return (
-        <div>
-            Chat
-        </div>
-    )
+  return (
+    <Container>
+      <Header>
+        {Channellist.map((item) => (
+          <Channel>
+            <ChannelsList>
+              <ChannelName>{item.name}</ChannelName>
+            </ChannelsList>
+            <ChannelInfo>{item.info}</ChannelInfo>
+          </Channel>
+        ))}
+
+        <ChannelDetails>
+          <div>Details</div>
+          <Info />
+        </ChannelDetails>
+      </Header>
+      <MessageContainer></MessageContainer>
+    </Container>
+  );
 }
 
-export default Chat
+export default Chat;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: 64px auto min-content;
+`;
+
+const Channel = styled.div``;
+
+const ChannelDetails = styled.div`
+  display: flex;
+  align-items: center;
+  color: #606060;
+`;
+
+const ChannelName = styled.div`
+  font-weight: 700;
+`;
+
+const ChannelInfo = styled.div`
+  font-weight: 400;
+  color: #606060;
+  font-size: 13px;
+  margin-top: 8px;
+`;
+
+const Info = styled(InfoOutlinedIcon)`
+  margin-left: 10px;
+`;
+
+const Header = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(83, 39, 83, 0.13);
+  justify-content: space-between;
+`;
+
+const MessageContainer = styled.div``;
+
+const ChannelsList = styled.div `
+`;
