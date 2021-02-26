@@ -7,10 +7,12 @@ import Header from "./Components/Header";
 import SideBar from "./Components/SideBar";
 import db from './Firebase'
 import { useEffect, useState } from "react";
+import { auth } from "./Firebase";
 
 function App() {
 
   const [rooms, setRooms] = useState([]);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   const getChannels = () => {
         db.collection('Rooms').onSnapshot((snapshot) => {
@@ -20,30 +22,40 @@ function App() {
         }))
       }) 
   }
+  
+  const signOut = () => {
+    auth.signOut().then(() => {
+      localStorage.removeItem('user');
+      setUser(null);
+    })
+  }
 
   useEffect(() => {
       getChannels(); 
   }, [])
 
-  console.log(rooms);
-
   return (
     <div className="App">
       <Router>
-        <Container>
-            <Header />
+        {!user ? (
+            <Login setUser = {setUser}/>
+          
+        ) : (
+          <Container>
+            <Header user={user} signOut = {signOut}/>
             <Main>
-              <SideBar rooms = {rooms} />
+              <SideBar rooms={rooms} />
               <Switch>
-              <Route path = "/room">
-                <Chat />
-            </Route>
-            <Route path = "//">
-                <Login />
-            </Route>
-          </Switch>
-          </Main>
+                <Route path="/rooms/:id">
+                  <Chat />
+                </Route>
+                <Route path="/"> 
+                    Select Or Create Channel
+                </Route>
+              </Switch>
+            </Main>
           </Container>
+        )}
       </Router>
     </div>
   );

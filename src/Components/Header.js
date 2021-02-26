@@ -3,29 +3,27 @@ import styled from 'styled-components'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-function Header() {
-    return (
-        <Container>
-            <Main>
-                <AccessTimeIcon />
-                <SearchContainer>
-                    <Search>
-                        <input type="text" placeholder="Search..." />
-                    </Search>
-                </SearchContainer>
-                <HelpOutlineIcon />
 
-            </Main>
-            <UserContainer>
-                <Name>
-                    Chinmay P
-                </Name>
-                <UserImage>
-                    <img src="https://i.imgur.com/6VBx3io.png" />
-                </UserImage>
-            </UserContainer>
-        </Container>
-    )
+function Header( {user, signOut}) {
+    return (
+      <Container>
+        <Main>
+          <AccessTimeIcon />
+          <SearchContainer>
+            <Search>
+              <input type="text" placeholder="Search..." />
+            </Search>
+          </SearchContainer>
+          <HelpOutlineIcon />
+        </Main>
+        <UserContainer>
+          <Name>{user.name}</Name>
+          <UserImage onClick={signOut}>
+            <img src={user.photo} alt="" />
+          </UserImage>
+        </UserContainer>
+      </Container>
+    );
 }
 
 export default Header
@@ -39,6 +37,7 @@ const Container = styled.div`
     justify-content: center;
     position: relative;
     box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
+    flex: 2;
 `
 
 const Main = styled.div`
@@ -93,4 +92,5 @@ const UserImage = styled.div `
     img {
         width: 100%;
     }    
+    cursor: pointer;
  `    

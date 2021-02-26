@@ -4,9 +4,11 @@
  import {sideBarItems} from "../Data/SideBarData";
  import AddIcon from "@material-ui/icons/Add";
  import db from "../Firebase" 
- 
+ import { useHistory } from "react-router-dom";
 
  function SideBar(props) {
+    const History = useHistory();
+
      const addChannel = () => {
          const promptName = prompt("Enter Channel Name")
          if(promptName){
@@ -14,6 +16,12 @@
                  Name: promptName
              })
          }
+    }
+
+    const goToChannel = (id) => {
+      if(id){
+          History.push(`/rooms/${id}`)
+      }
     }
 
     return (
@@ -39,7 +47,10 @@
           </NewChannelsContainer>
           <ChannelsList>
             {props.rooms.map((item) => (
-              <Channel> # {item.name}</Channel>
+              <Channel onClick = {() => {
+                goToChannel(item.id)}}> 
+              # {item.name}
+              </Channel>
             ))}
           </ChannelsList>
         </ChannelsContainer>
