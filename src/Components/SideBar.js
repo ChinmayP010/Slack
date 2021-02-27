@@ -7,7 +7,7 @@
  import { useHistory } from "react-router-dom";
 
  function SideBar(props) {
-    const History = useHistory();
+    const history = useHistory();
 
      const addChannel = () => {
          const promptName = prompt("Enter Channel Name")
@@ -20,7 +20,7 @@
 
     const goToChannel = (id) => {
       if(id){
-          History.push(`/rooms/${id}`)
+          history.push(`/room/${id}`)
       }
     }
 
