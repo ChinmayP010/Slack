@@ -15,7 +15,7 @@ function Chat() {
        db.collection("rooms")
         .doc(channelId)
          .onSnapshot((snapshot) => {
-          console.log(snapshot.data());
+          setChannel(snapshot.data());
          });
      };
 
@@ -27,7 +27,7 @@ function Chat() {
       <Container>
         <Header>
           <Channel>
-            <ChannelName># {}</ChannelName>
+            <ChannelName># {channel.name}</ChannelName>
             <ChannelInfo>A Beautiful Channel</ChannelInfo>
           </Channel>
           <ChannelDetails>
